@@ -17,6 +17,25 @@
 	 		  Retrieve info about toy from the db using provided PDO connection
 	 */
 
+	// SQL query to retrieve toy and manufacturer information based on the toy ID
+	$sql = "
+		SELECT 
+			t.*,
+			m.name     AS manName,
+			m.street   AS manStreet,
+			m.city     AS manCity,
+			m.state    AS manState,
+			m.zipCode  AS manZip,
+			m.phone    AS manPhone,
+			m.contact  AS manContact
+		FROM toy t
+		JOIN manuf m 
+			ON t.manid = m.manid
+		WHERE t.toynum = :toynum
+	";
+
+	$toy = pdo($pdo, $sql, ['toynum' => $toy_id])->fetch();
+
 
 // Closing PHP tag  ?> 
 
@@ -64,45 +83,45 @@
 			<div class="toy-details-container">
 				<div class="toy-image">
 					<!-- Display image of toy with its name as alt text -->
-					<img src="<?= '' ?>" alt="<?= '' ?>">
+					<img src="<?= $toy['imgSrc'] ?>" alt="<?= $toy['name'] ?>">
 				</div>
 
 				<div class="toy-details">
 
 					<!-- Display name of toy -->
-			        <h1><?= '' ?></h1>
+			        <h1><?= $toy['name'] ?></h1>
 
 			        <hr />
 
 			        <h3>Toy Information</h3>
 
 			        <!-- Display description of toy -->
-			        <p><strong>Description:</strong> <?= '' ?></p>
+			        <p><strong>Description:</strong> <?= $toy['description'] ?></p>
 
 			        <!-- Display price of toy -->
-			        <p><strong>Price:</strong> $ <?= '' ?></p>
+			        <p><strong>Price:</strong> $ <?= $toy['price'] ?></p>
 
 			        <!-- Display age range of toy -->
-			        <p><strong>Age Range:</strong> <?= '' ?></p>
+			        <p><strong>Age Range:</strong> <?= $toy['agerange'] ?></p>
 
 			        <!-- Display stock of toy -->
-			        <p><strong>Number In Stock:</strong> <?= '' ?></p>
+			        <p><strong>Number In Stock:</strong> <?= $toy['numinstock'] ?></p>
 
 			        <br />
 
 			        <h3>Manufacturer Information</h3>
 
 			        <!-- Display name of manufacturer -->
-			        <p><strong>Name:</strong> <?= '' ?> </p>
+			        <p><strong>Name:</strong> <?= $toy['manName'] ?> </p>
 
 			        <!-- Display address of manufacturer -->
-			        <p><strong>Address:</strong> <?= '' ?></p>
+			        <p><strong>Address:</strong> <?= $toy['manStreet'] ?></p>
 
 			        <!-- Display phone of manufacturer -->
-			        <p><strong>Phone:</strong> <?= '' ?></p>
+			        <p><strong>Phone:</strong> <?= $toy['manPhone'] ?></p>
 
 			        <!-- Display contact of manufacturer -->
-			        <p><strong>Contact:</strong> <?= '' ?></p>
+			        <p><strong>Contact:</strong> <?= $toy['manContact'] ?></p>
 			    </div>
 			</div>
 		</main>
