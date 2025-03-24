@@ -115,7 +115,7 @@
 			        <p><strong>Name:</strong> <?= $toy['manName'] ?> </p>
 
 			        <!-- Display address of manufacturer -->
-			        <p><strong>Address:</strong> <?= $toy['manStreet'] ?></p>
+					<p><strong>Address:</strong> <?= $toy['manStreet'] . ", " . $toy['manCity'] . ", " . $toy['manState'] . " " . $toy['manZip'] ?></p>
 
 			        <!-- Display phone of manufacturer -->
 			        <p><strong>Phone:</strong> <?= $toy['manPhone'] ?></p>
