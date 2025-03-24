@@ -28,14 +28,13 @@
 
 	// Retrieve info about toy with ID '0001' from the db using provided PDO connection
 	//$toy1 = get_toy($pdo, '0001');
-	$sql = "SELECT * FROM toy";
-	$allToys = pdo($pdo, $sql)->fetchAll(); // fetch all toys
-	
 
 	/*
 	 * TO-DO: Retrieve info for ALL remaining toys from the db
 	 */
-
+	$sql = "SELECT * FROM toy";
+	$allToys = pdo($pdo, $sql)->fetchAll(); // fetch all toys
+	
 
 // Closing PHP tag  ?> 
 
