@@ -27,7 +27,7 @@
 	}
 
 	// Retrieve info about toy with ID '0001' from the db using provided PDO connection
-	//$toy1 = get_toy($pdo, '0001');
+	//$toy = get_toy($pdo, '0001');
 
 	/*
 	 * TO-DO: Retrieve info for ALL remaining toys from the db
@@ -79,17 +79,17 @@
 			  	<?php foreach ($allToys as $toy): ?>
 					<div class="toy-card">
 						<!-- Create a hyperlink to toy.php page with toy number as parameter -->
-						<a href="toy.php?toynum=<?= $toy1['toynum'] ?>">
+						<a href="toy.php?toynum=<?= $toy['toynum'] ?>">
 
 							<!-- Display image of toy with its name as alt text -->
-							<img src="<?= $toy1['imgSrc'] ?>" alt="<?= $toy1['name'] ?>">
+							<img src="<?= $toy['imgSrc'] ?>" alt="<?= $toy['name'] ?>">
 						</a>
 
 						<!-- Display name of toy -->
-						<h2><?= $toy1['name'] ?></h2>
+						<h2><?= $toy['name'] ?></h2>
 
 						<!-- Display price of toy -->
-						<p>$<?= $toy1['price'] ?></p>
+						<p>$<?= $toy['price'] ?></p>
 					</div>
 				<?php endforeach; ?>
   			</section>
