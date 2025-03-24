@@ -103,7 +103,7 @@
 						<h1>Order Details</h1>
 						<p><strong>Name: </strong> <?= $order['cname'] ?></p>
 				        	<p><strong>Username: </strong> <?= $order['username'] ?></p>
-				        	<p><strong>Order Number: </strong> <?= order['ordernum'] ?></p>
+				        	<p><strong>Order Number: </strong> <?= $order['ordernum'] ?></p>
 				        	<p><strong>Quantity: </strong> <?= $order['quantity'] ?></p>
 				        	<p><strong>Date Ordered: </strong> <?= $order['date_ordered'] ?></p>
 				        	<p><strong>Delivery Date: </strong> <?= $order['date_deliv'] ?></p>
